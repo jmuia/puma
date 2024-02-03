@@ -334,6 +334,7 @@ module Puma
           log "Early termination of worker"
           exit! 0
         else
+          @events.fire_before_stopped!
           @launcher.close_binder_listeners
 
           stop_workers

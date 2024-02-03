@@ -42,6 +42,10 @@ module Puma
       register(:on_stopped, &block)
     end
 
+    def before_stopped(&block)
+      register(:before_stopped, &block)
+    end
+
     def fire_on_booted!
       fire(:on_booted)
     end
@@ -52,6 +56,10 @@ module Puma
 
     def fire_on_stopped!
       fire(:on_stopped)
+    end
+
+    def fire_before_stopped!
+      fire(:before_stopped)
     end
   end
 end
